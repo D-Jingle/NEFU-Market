@@ -1,0 +1,40 @@
+@import "../../common/item.wxss";
+.gap{
+  height: 73rpx;
+}
+.tab-scoller {
+  background: white;
+  height: 73rpx;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+}
+/*取消移动条*/
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  color: transparent;
+}
+.active {
+  color: #000 !important;
+  /* background-color: #fff; */
+  border-bottom: 6rpx solid rgba(93, 95, 93, 0.637);
+}
+.tab-view {
+  text-align: center;
+  width: 5rem;
+  display: inline-block;
+  align-items: center;
+  height: 100%;
+  padding-top: 16rpx;
+  font-size: 30rpx;
+}
+.tab-text {
+  position: relative;
+  line-height: 100%;
+}

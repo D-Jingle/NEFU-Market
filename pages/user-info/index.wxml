@@ -1,0 +1,59 @@
+<!-- 姓名
+性别 
+联系方式
+校区选择 -->
+<view class='container1'>
+  <view class='title'>第一步
+  就请从完善信息开始吧🏃🏻‍</view>
+</view>
+
+<view class='container'>
+  <view class='mes-head'>昵称</view>
+  <view class="page-section">
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__bd">
+          <input class="weui-input" name="input" bindinput='bindNickname' placeholder="起一个你喜欢的名字" />
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='mes-head'>真实姓名</view>
+  <view class="page-section">
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__bd">
+          <input class="weui-input" name="input" placeholder="填写真实姓名可以方便买家联系你" bindinput='bindName'/>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='mes-head'>手机号码</view>
+  <view class="page-section">
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__bd">
+          <input class="weui-input" name="input" type="number" bindinput='bindNum' placeholder="手机号码是买家联系你的重要方式" />
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="page-body">
+    <view class="page-section">
+      <view class="weui-cells__title">选择校区</view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_input">
+          <view class="weui-cell__hd">
+            <view class="weui-label">当前选择校区</view>
+          </view>
+          <view class="weui-cell__bd">
+            <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+              <view class="weui-input">{{array[index]}}</view>
+            </picker>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <button type='primary' class='btn-primary' bindtap='submit'>提交</button>
+</view>

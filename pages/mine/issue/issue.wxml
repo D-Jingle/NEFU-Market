@@ -1,0 +1,63 @@
+<import src="../common/header.wxml" />
+<import src="../common/footer.wxml" />
+
+<view class="container">
+  <view class="page-body">
+    <view class="page-body-wrapper">
+      <form> 
+        <view>
+          <view class='container-min'>
+            <view class='left'>商品标题</view>
+            <view class="section">
+              <input focus placeholder='请输入标题' class='name' bindblur="goodTitle"/>
+            </view>
+          </view>
+          <view class='holder'></view>
+
+          <view class='container-min'>
+            <picker id='pick' bindchange="bindPickerChange" bindtap='reSort' value="{{index}}" range="{{array}}">
+            <view class="picker">
+              <view>宝贝分类: 
+              </view>
+              <view style='padding-left: 50rpx;'>{{array[index]}}
+              </view>
+            </view>
+            </picker>
+          </view>
+          <view class='holder'></view>
+
+          <view class='container-min'>
+            <view class='left'>商品价格</view>
+            <view class="section">
+              <input type='digit' placeholder='请输入价格' class='detail' bindblur="goodPrice"/>
+            </view>
+          </view>
+          <view class='holder'></view>
+
+          <view class='container-max'>
+            <view class="section3">
+              <textarea bindblur='bindTextAreaBlur' placeholder='请简要说明您的物品名称，参数，价格等信息' class='money' ></textarea>
+            </view>
+          </view>
+
+        </view>
+
+        <view class="images-wrapper">
+          <text class="images-text">上传图片</text>
+          <view class="images-list">
+            <block wx:for="{{imageList}}">
+              <image src="{{item}}" class="images-image" bindtap="previewImage"></image>
+            </block>
+            <view class="images-image image-plus" bindtap="chooseImage">
+              <view class="image-plus-horizontal"></view>
+              <view class="image-plus-vertical"></view>
+            </view>
+          </view>
+        </view>
+        <button type="primary" class='submit' bindtap="modalcnt">确定发布</button>
+      </form>
+    </view>
+  </view>
+
+</view>
+

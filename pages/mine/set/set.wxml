@@ -1,0 +1,40 @@
+<!--pages/mine/set/set.wxml-->
+<!-- <text>pages/mine/set/set.wxml</text> -->
+<view class='container'>
+  <view class='user-info'>
+    <view class='head'>
+      <image class='head-img' src='{{profileImg}}'></image>
+    </view>
+    <view class='nickname'>{{wechatName}}</view>
+  </view>
+</view>  
+<view class='gap'></view>
+<view class='box'>
+  <view class='left'>真实姓名</view>
+  <view class='right'>
+    {{name}}
+  </view>
+</view>
+<view class='box'>
+  <view class='left'>昵称</view>
+  <view class='right'>
+    <input class="input" name="input" bindinput='bindNickname' value="{{nickName}}" />
+  </view>
+</view>
+<view class='box'>
+  <view class='left'>电话号码</view>
+  <view class='right'>
+    <input class="input" name="input" bindinput='bindtelNumber' value="{{telNumber}}" />
+  </view>
+</view>
+<view class='box'>
+  <view class='left'>收货地址</view>
+  <view class='right'>
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{addr}}">
+    <view class="picker">
+      {{addr[index]}}
+    </view>
+  </picker>
+  </view>
+</view>
+<button type='primary' bindtap='submit'>确定更改</button>

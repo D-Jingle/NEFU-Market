@@ -1,0 +1,56 @@
+{
+  "pages": [
+    "pages/home/index",
+    "pages/can/can",
+    "pages/user-info/index",
+    "pages/index2/index",
+    "pages/logs/logs",
+    "pages/info/info",
+    "pages/sort/index",
+    "pages/mine/index",
+    "pages/mine/set/set",
+    "pages/mine/issue/issue",
+    "pages/details/details",
+    "pages/mine/issued/issued",
+    "pages/mine/issued/edit/edit",
+    "pages/home/memu1/memu1",
+    "pages/home/memu2/memu2",
+    "pages/home/memu3/memu3",
+    "pages/home/memu4/memu4"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#1AAD19",
+    "navigationBarTextStyle": "dark",
+    "enablePullDownRefresh": true,
+    "backgroundTextStyle": "dark"
+  },
+  "tabBar": {
+    "color": "#cacaca",
+    "selectedColor": "#f40",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/home/index",
+        "navigationBarTitleText": "首页",
+        "text": "首页",
+        "iconPath": "common/img/home.png",
+        "selectedIconPath": "common/img/home_select.png"
+      },
+      {
+        "pagePath": "pages/sort/index",
+        "navigationBarTitleText": "浏览",
+        "text": "浏览",
+        "iconPath": "common/img/sort.png",
+        "selectedIconPath": "common/img/sort_select.png"
+      },
+      {
+        "pagePath": "pages/mine/index",
+        "navigationBarTitleText": "我的",
+        "text": "我的",
+        "iconPath": "common/img/mytb.png",
+        "selectedIconPath": "common/img/mytb_select.png"
+      }
+    ]
+  }
+}

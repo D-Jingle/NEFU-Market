@@ -1,0 +1,65 @@
+/* pages/mine/index.wxss */
+
+.container{
+  padding: 60rpx 0 50rpx 0;
+  background-size: cover;
+}
+.user-info{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.head{
+  height: 150rpx;
+  width: 150rpx;
+  border-radius: 50%;
+}
+.head-img{
+  width: 100%;
+  height: 100%;
+  border-radius:50%; 
+}
+.nickname{
+  margin-top: 30rpx;
+}
+.gap-1{ 
+  width: 100%;
+  background-color: rgb(251,249,254);
+  height: 30rpx;
+}
+.gap-2{
+  width: 100%;
+  background-color: rgb(251,249,254);
+  height: 15rpx;
+}
+.box{
+  height: 90rpx;
+  /* border: 1px solid black; */
+  /* margin-top: 10rpx; */
+  padding: 0 40rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.icon{
+  height: 55rpx;
+  width: 55rpx;
+}
+.icon-right{
+  height: 40rpx;
+  width: 40rpx;
+  margin: 0 20rpx 0 auto;
+}
+.txt{
+  font-size: 32rpx;
+  padding-left: 30rpx;
+}
+.section{
+  width: 90%;
+}
+/* .user-info{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+} */

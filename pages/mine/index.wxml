@@ -1,0 +1,23 @@
+<view class='container'>
+  <view class='user-info'>
+    <view class='head'>
+      <image class='head-img' src='{{profileImg}}'></image>
+    </view>
+    <view class='nickname'>{{wechatName}}</view>
+  </view>
+</view>  
+
+<view class='gap-1'></view>
+
+<view wx:for='{{data}}'>
+<navigator url='{{item.navUrl}}'>
+  <view class='box'>
+    
+      <image src='{{item.imgUrls}}' class='icon'></image>
+      <view class='txt'>{{item.title}}</view>
+      <image src='{{imgUrl}}' class='icon-right'></image>
+
+  </view>
+  </navigator>
+  <view class='gap-2'></view>
+</view>

@@ -1,0 +1,85 @@
+<scroll-view scroll-y='true'>
+<view class="index">
+    <!-- <view id='search-box'>
+  <input bindtap='toSearch' id='search-ipt' placeholder='搜索'></input>
+</view> -->
+<!-- 轮播图 -->
+    <view class="banner">
+        <swiper indicator-dots="{{indicatorDots}}"
+          autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}">
+          <block wx:for="{{swImgUrls}}">
+            <swiper-item>
+              <image class="banner-img" src="{{item}}" class="slide-image"/>
+            </swiper-item>
+          </block>
+        </swiper>
+    </view >
+<!-- 轮播图结束 -->
+<!-- 分栏 -->
+     <view class="menu-wrp">
+         <navigator class="menu-list" wx:for="{{menu}}" url='{{item.tapUrl}}'>
+              <image class="menu-img" src="{{item.imgurl}}"/>
+              <view  class="menu-desc" >{{item.descs}}</view>
+         </navigator>
+      </view> 
+<!-- 分栏结束 -->
+
+     <view class="gap-1"></view >
+
+<!-- 最新发布 -->
+    <view class="tb-toppest">
+      <image class='recommend' src='{{issueImg}}'></image>
+       <view class="content">最新发布</view>
+    </view >
+<!-- 最新发布结束 -->
+    <view class="gap-1"></view>
+
+<!-- 商品信息 -->
+    <view class='banner-info-box' wx:for='{{item}}' bindtap='toDetails' data-id='{{item.itemId}}' id='{{item.itemId}}'>
+      <view class='banner-info-text'>
+      <!-- 用户信息 -->
+        <view class='banner-info-user'>
+        <!-- 用户头像 -->
+          <view class='banner-info-head'>
+            <image src="{{item.profileImg}}" class='banner-user-img'></image>
+          </view>
+          <!-- 用户信息及发布时间 -->
+          <view class='banner-info-box2'>
+            <view class='banner-info-usnm'>{{item.wechatName}}
+            </view>
+            <view class='banner-info-time'>发布时间：{{item.createTime}}
+            </view>
+          </view>
+        </view>
+        <!-- 用户信息结束 -->
+        <view class='banner-info-money'>￥{{item.price}}
+        </view>
+      </view>
+      <!-- 商品文字介绍 -->
+      <view class='banner-info-intr'>
+        <view class='intr-title'>  ⭐️  {{item.name}}</view>
+        <view class='text'>{{item.content}} 
+        </view>
+      </view>
+      <!-- 商品图片 -->
+      <scroll-view scroll-x="true" class="{{item.img.length != 0 ? 'banner-info-img' : 'dis-none'}}">
+        <view wx:for='{{item.img}}' style='background-image: url("https://{{item.imgUrl}}")'>
+        </view>
+      </scroll-view>
+      <!-- 浏览人数 -->
+      <view class='views'>浏览人数：{{item.views}}
+      </view>
+    </view>
+<!-- 商品信息结束 -->
+    <view wx:if='{{!loading && !bottom}}' class="gap-3">
+      上拉加载更多
+    </view >
+    <view wx:if='{{loading && !bottom}}' class="gap-3">
+      <image src='../../common/img/loading.gif'></image>
+      加载中
+    </view >
+    <view wx:if='{{bottom}}' class="gap-3" >
+      哇塞，你已经看到底了！
+    </view>
+</view>
+</scroll-view>

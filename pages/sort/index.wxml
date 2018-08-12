@@ -1,0 +1,375 @@
+<scroll-view class="tab-scoller " scroll-x="true"  scroll-left="{{scrollLength}}">
+  <block wx:for="{{listTab}}" wx:key="sortId">
+    <view class="tab-view" data-index="{{index}}" id="{{item.sortId}}" bindtap="reflashData">
+      <text class="tab-text active" wx:if="{{index == curIndex}}">{{item.sortName}}</text>
+      <text class="tab-text" wx:else>{{item.sortName}}</text>
+    </view>
+  </block>  
+</scroll-view> 
+
+<!-- 全部分类  -->
+
+<view style="width:98%;heigth:100%;" class="{{curIndex == 0 ? 'box' : 'dis-none'}}">
+  <view class='gap'></view>
+  <view>
+    <view class='banner-info-box' wx:for='{{itemList[0].item}}' bindtap='toDetails' data-id='{{item.itemId}}' id='{{item.itemId}}'>
+      <view class='banner-info-text'>
+      <!-- 用户信息 -->
+        <view class='banner-info-user'>
+        <!-- 用户头像 -->
+          <view class='banner-info-head'>
+            <image src="{{item.profileImg}}" class='banner-user-img'></image>
+          </view>
+          <!-- 用户信息及发布时间 -->
+          <view class='banner-info-box2'>
+            <view class='banner-info-usnm'>{{item.wechatName}}
+            </view>
+            <view class='banner-info-time'>{{item.createTime}}
+            </view> 
+          </view>
+        </view>
+        <!-- 用户信息结束 -->
+        <view class='banner-info-money'>￥{{item.price}}
+        </view>
+      </view>
+      <!-- 商品文字介绍 -->
+      <view class='banner-info-intr'>
+        <view class='intr-title'>  ⭐️  {{item.name}}</view>
+        <view class='text'>{{item.content}} 
+        </view>
+      </view>
+      <!-- 商品图片 -->
+      <scroll-view scroll-x="true" class="{{item.img.length != 0 ? 'banner-info-img' : 'dis-none'}}">
+        <view wx:for='{{item.img}}' style='background-image: url("https://{{item.imgUrl}}")'>
+        </view>
+      </scroll-view>
+      <!-- 浏览人数 -->
+      <view class='views'>浏览人数：{{item.views}}
+      </view>
+    </view>
+    <!-- 商品信息结束 -->
+    <view wx:if='{{!loadingList[0].loading && !bottomList[0].bottom}}' class="gap-3">
+      上拉加载更多
+    </view >
+    <view wx:if='{{loadingList[0].loading && !bottomList[0].bottom}}' class="gap-3">
+      <image src='../../common/img/loading.gif'></image>
+      加载中
+    </view >
+    <view wx:if='{{bottomList[0].bottom}}' class="gap-3" >
+      哇塞，你已经看到底了！
+    </view >
+  </view>
+
+</view>
+
+<view style="width:100%;heigth:100%;" class="{{curIndex == 1 ? 'box' : 'dis-none'}}">
+  <view class='gap'></view>
+  <view>
+    <view class='banner-info-box' wx:for='{{itemList[1].item}}' wx:if='{{item.sortId == 1}}' bindtap='toDetails' data-id='{{item.itemId}}' id='{{item.itemId}}'>
+      <view class='banner-info-text'>
+      <!-- 用户信息 -->
+        <view class='banner-info-user'>
+        <!-- 用户头像 -->
+          <view class='banner-info-head'>
+            <image src="{{item.profileImg}}" class='banner-user-img'></image>
+          </view>
+          <!-- 用户信息及发布时间 -->
+          <view class='banner-info-box2'>
+            <view class='banner-info-usnm'>{{item.wechatName}}
+            </view>
+            <view class='banner-info-time'>{{item.createTime}}
+            </view> 
+          </view>
+        </view>
+        <!-- 用户信息结束 -->
+        <view class='banner-info-money'>￥{{item.price}}
+        </view>
+      </view>
+      <!-- 商品文字介绍 -->
+      <view class='banner-info-intr'>
+        <view class='intr-title'>  ⭐️  {{item.name}}</view>
+        <view class='text'>{{item.content}} 
+        </view>
+      </view>
+      <!-- 商品图片 -->
+      <scroll-view scroll-x="true" class="{{item.img.length != 0 ? 'banner-info-img' : 'dis-none'}}">
+        <view wx:for='{{item.img}}' style='background-image: url("https://{{item.imgUrl}}")'>
+        </view>
+      </scroll-view>
+      <!-- 浏览人数 -->
+      <view class='views'>浏览人数：{{item.views}}
+      </view>
+    </view>
+    <!-- 商品信息结束 -->
+    <view wx:if='{{!loadingList[1].loading && !bottomList[1].bottom}}' class="gap-3">
+      上拉加载更多
+    </view >
+    <view wx:if='{{loadingList[1].loading && !bottomList[1].bottom}}' class="gap-3">
+      <image src='../../common/img/loading.gif'></image>
+      加载中
+    </view >
+    <view wx:if='{{bottomList[1].bottom}}' class="gap-3" >
+      哇塞，你已经看到底了！
+    </view >
+  </view>
+</view>
+
+<view style="width:100%;heigth:100%;" class="{{curIndex == 2 ? 'box' : 'dis-none'}}" >
+  <view class='gap'></view>
+  <view>
+    <view class='banner-info-box' wx:for='{{itemList[2].item}}' wx:if='{{item.sortId == 2}}' bindtap='toDetails' data-id='{{item.itemId}}' id='{{item.itemId}}'>
+      <view class='banner-info-text'>
+      <!-- 用户信息 -->
+        <view class='banner-info-user'>
+        <!-- 用户头像 -->
+          <view class='banner-info-head'>
+            <image src="{{item.profileImg}}" class='banner-user-img'></image>
+          </view>
+          <!-- 用户信息及发布时间 -->
+          <view class='banner-info-box2'>
+            <view class='banner-info-usnm'>{{item.wechatName}}
+            </view>
+            <view class='banner-info-time'>{{item.createTime}}
+            </view> 
+          </view>
+        </view>
+        <!-- 用户信息结束 -->
+        <view class='banner-info-money'>￥{{item.price}}
+        </view>
+      </view>
+      <!-- 商品文字介绍 -->
+      <view class='banner-info-intr'>
+        <view class='intr-title'>  ⭐️  {{item.name}}</view>
+        <view class='text'>{{item.content}} 
+        </view>
+      </view>
+      <!-- 商品图片 -->
+      <scroll-view scroll-x="true" class="{{item.img.length != 0 ? 'banner-info-img' : 'dis-none'}}">
+        <view wx:for='{{item.img}}' style='background-image: url("https://{{item.imgUrl}}")'>
+        </view>
+      </scroll-view>
+      <!-- 浏览人数 -->
+      <view class='views'>浏览人数：{{item.views}}
+      </view>
+    </view>
+    <!-- 商品信息结束 -->
+    <view wx:if='{{!loadingList[2].loading && !bottomList[2].bottom}}' class="gap-3">
+      上拉加载更多
+    </view >
+    <view wx:if='{{loadingList[2].loading && !bottomList[2].bottom}}' class="gap-3">
+      <image src='../../common/img/loading.gif'></image>
+      加载中
+    </view >
+    <view wx:if='{{bottomList[2].bottom}}' class="gap-3" >
+      哇塞，你已经看到底了！
+    </view >
+  </view>
+</view>
+
+<view style="width:100%;heigth:100%;" class="{{curIndex == 3 ? 'box' : 'dis-none'}}">
+  <view class='gap'></view>
+  <view>
+    <view class='banner-info-box' wx:for='{{itemList[3].item}}' wx:if='{{item.sortId == 3}}' bindtap='toDetails' data-id='{{item.itemId}}' id='{{item.itemId}}'>
+      <view class='banner-info-text'>
+      <!-- 用户信息 -->
+        <view class='banner-info-user'>
+        <!-- 用户头像 -->
+          <view class='banner-info-head'>
+            <image src="{{item.profileImg}}" class='banner-user-img'></image>
+          </view>
+          <!-- 用户信息及发布时间 -->
+          <view class='banner-info-box2'>
+            <view class='banner-info-usnm'>{{item.wechatName}}
+            </view>
+            <view class='banner-info-time'>{{item.createTime}}
+            </view> 
+          </view>
+        </view>
+        <!-- 用户信息结束 -->
+        <view class='banner-info-money'>￥{{item.price}}
+        </view>
+      </view>
+      <!-- 商品文字介绍 -->
+      <view class='banner-info-intr'>
+        <view class='intr-title'>  ⭐️  {{item.name}}</view>
+        <view class='text'>{{item.content}} 
+        </view>
+      </view>
+      <!-- 商品图片 -->
+      <scroll-view scroll-x="true" class="{{item.img.length != 0 ? 'banner-info-img' : 'dis-none'}}">
+        <view wx:for='{{item.img}}' style='background-image: url("https://{{item.imgUrl}}")'>
+        </view>
+      </scroll-view>
+      <!-- 浏览人数 -->
+      <view class='views'>浏览人数：{{item.views}}
+      </view>
+    </view>
+    <!-- 商品信息结束 -->
+    <view wx:if='{{!loadingList[3].loading && !bottomList[3].bottom}}' class="gap-3">
+      上拉加载更多
+    </view >
+    <view wx:if='{{loadingList[3].loading && !bottomList[3].bottom}}' class="gap-3">
+      <image src='../../common/img/loading.gif'></image>
+      加载中
+    </view >
+    <view wx:if='{{bottomList[3].bottom}}' class="gap-3" >
+      哇塞，你已经看到底了！
+    </view >
+  </view>
+</view>
+
+<view style="width:100%;heigth:100%;" class="{{curIndex == 4 ? 'box' : 'dis-none'}}" >
+  <view class='gap'></view>
+  <view>
+    <view class='banner-info-box' wx:for='{{itemList[4].item}}' wx:if='{{item.sortId == 4}}' bindtap='toDetails' data-id='{{item.itemId}}' id='{{item.itemId}}'>
+      <view class='banner-info-text'>
+      <!-- 用户信息 -->
+        <view class='banner-info-user'>
+        <!-- 用户头像 -->
+          <view class='banner-info-head'>
+            <image src="{{item.profileImg}}" class='banner-user-img'></image>
+          </view>
+          <!-- 用户信息及发布时间 -->
+          <view class='banner-info-box2'>
+            <view class='banner-info-usnm'>{{item.wechatName}}
+            </view>
+            <view class='banner-info-time'>{{item.createTime}}
+            </view> 
+          </view>
+        </view>
+        <!-- 用户信息结束 -->
+        <view class='banner-info-money'>￥{{item.price}}
+        </view>
+      </view>
+      <!-- 商品文字介绍 -->
+      <view class='banner-info-intr'>
+        <view class='intr-title'>  ⭐️  {{item.name}}</view>
+        <view class='text'>{{item.content}} 
+        </view>
+      </view>
+      <!-- 商品图片 -->
+      <scroll-view scroll-x="true" class="{{item.img.length != 0 ? 'banner-info-img' : 'dis-none'}}">
+        <view wx:for='{{item.img}}' style='background-image: url("https://{{item.imgUrl}}")'>
+        </view>
+      </scroll-view>
+      <!-- 浏览人数 -->
+      <view class='views'>浏览人数：{{item.views}}
+      </view>
+    </view>
+    <!-- 商品信息结束 -->
+    <view wx:if='{{!loadingList[4].loading && !bottomList[4].bottom}}' class="gap-3">
+      上拉加载更多
+    </view >
+    <view wx:if='{{loadingList[4].loading && !bottomList[4].bottom}}' class="gap-3">
+      <image src='../../common/img/loading.gif'></image>
+      加载中
+    </view >
+    <view wx:if='{{bottomList[4].bottom}}' class="gap-3" >
+      哇塞，你已经看到底了！
+    </view >
+  </view>
+</view>
+
+<view style="width:100%;heigth:100%;" class="{{curIndex == 5 ? 'box' : 'dis-none'}}"  >
+  <view class='gap'></view>
+  <view>
+    <view class='banner-info-box' wx:for='{{itemList[5].item}}' wx:if='{{item.sortId == 5}}' bindtap='toDetails' data-id='{{item.itemId}}' id='{{item.itemId}}'>
+      <view class='banner-info-text'>
+      <!-- 用户信息 -->
+        <view class='banner-info-user'>
+        <!-- 用户头像 -->
+          <view class='banner-info-head'>
+            <image src="{{item.profileImg}}" class='banner-user-img'></image>
+          </view>
+          <!-- 用户信息及发布时间 -->
+          <view class='banner-info-box2'>
+            <view class='banner-info-usnm'>{{item.wechatName}}
+            </view>
+            <view class='banner-info-time'>{{item.createTime}}
+            </view> 
+          </view>
+        </view>
+        <!-- 用户信息结束 -->
+        <view class='banner-info-money'>￥{{item.price}}
+        </view>
+      </view>
+      <!-- 商品文字介绍 -->
+      <view class='banner-info-intr'>
+        <view class='intr-title'>  ⭐️  {{item.name}}</view>
+        <view class='text'>{{item.content}} 
+        </view>
+      </view>
+      <!-- 商品图片 -->
+      <scroll-view scroll-x="true" class="{{item.img.length != 0 ? 'banner-info-img' : 'dis-none'}}">
+        <view wx:for='{{item.img}}' style='background-image: url("https://{{item.imgUrl}}")'>
+        </view>
+      </scroll-view>
+      <!-- 浏览人数 -->
+      <view class='views'>浏览人数：{{item.views}}
+      </view>
+    </view>
+    <!-- 商品信息结束 -->
+    <view wx:if='{{!loadingList[5].loading && !bottomList[5].bottom}}' class="gap-3">
+      上拉加载更多
+    </view >
+    <view wx:if='{{loadingList[5].loading && !bottomList[5].bottom}}' class="gap-3">
+      <image src='../../common/img/loading.gif'></image>
+      加载中
+    </view >
+    <view wx:if='{{bottomList[5].bottom}}' class="gap-3" >
+      哇塞，你已经看到底了！
+    </view >
+  </view>
+</view>
+
+<view style="width:100%;heigth:100%;" class="{{curIndex == 6 ? 'box' : 'dis-none'}}" >
+  <view class='gap'></view>
+  <view>
+    <view class='banner-info-box' wx:for='{{itemList[6].item}}' wx:if='{{item.sortId == 6}}' bindtap='toDetails' data-id='{{item.itemId}}' id='{{item.itemId}}'>
+      <view class='banner-info-text'>
+      <!-- 用户信息 -->
+        <view class='banner-info-user'>
+        <!-- 用户头像 -->
+          <view class='banner-info-head'>
+            <image src="{{item.profileImg}}" class='banner-user-img'></image>
+          </view>
+          <!-- 用户信息及发布时间 -->
+          <view class='banner-info-box2'>
+            <view class='banner-info-usnm'>{{item.wechatName}}
+            </view>
+            <view class='banner-info-time'>{{item.createTime}}
+            </view> 
+          </view>
+        </view>
+        <!-- 用户信息结束 -->
+        <view class='banner-info-money'>￥{{item.price}}
+        </view>
+      </view>
+      <!-- 商品文字介绍 -->
+      <view class='banner-info-intr'>
+        <view class='intr-title'>  ⭐️  {{item.name}}</view>
+        <view class='text'>{{item.content}} 
+        </view>
+      </view>
+      <!-- 商品图片 -->
+      <scroll-view scroll-x="true" class="{{item.img.length != 0 ? 'banner-info-img' : 'dis-none'}}">
+        <view wx:for='{{item.img}}' style='background-image: url("https://{{item.imgUrl}}")'>
+        </view>
+      </scroll-view>
+      <!-- 浏览人数 -->
+      <view class='views'>浏览人数：{{item.views}}
+      </view>
+    </view>
+    <!-- 商品信息结束 -->
+    <view wx:if='{{!loadingList[6].loading && !bottomList[6].bottom}}' class="gap-3">
+      上拉加载更多
+    </view >
+    <view wx:if='{{loadingList[6].loading && !bottomList[6].bottom}}' class="gap-3">
+      <image src='../../common/img/loading.gif'></image>
+      加载中
+    </view >
+    <view wx:if='{{bottomList[6].bottom}}' class="gap-3" >
+      哇塞，你已经看到底了！
+    </view >
+  </view>
+</view>

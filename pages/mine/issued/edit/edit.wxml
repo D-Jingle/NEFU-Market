@@ -1,0 +1,64 @@
+<!--pages/mine/issued/edit/edit.wxml-->
+<!-- <text>pages/mine/issued/edit/edit.wxml</text> -->
+<view class="container">
+  <view class="page-body">
+    <view class="page-body-wrapper">
+      <form> 
+        <view>
+          <view class='container-min'>
+            <view class='left'>商品标题</view>
+            <view class="section">
+              <input focus class='name' bindblur="goodTitle" value='{{item.name}}'/>
+            </view>
+          </view>
+          <view class='holder'></view>
+
+          <view class='container-min'>
+            <picker id='pick' bindchange="bindPickerChange" bindtap='reSort' value="{{index}}" range="{{array}}">
+            <view class="picker">
+              <view>宝贝分类: 
+              </view>
+              <view style='padding-left: 50rpx;'>{{array[index]}}
+              </view>
+            </view>
+            </picker>
+          </view>
+          <view class='holder'></view>
+
+          <view class='container-min'>
+            <view class='left'>商品价格</view>
+            <view class="section">
+              <input type='digit' class='detail' value='{{item.price}}' bindblur="goodPrice"/>
+            </view>
+          </view>
+          <view class='holder'></view>
+
+          <view class='container-max'>
+            <view class="section3">
+              <textarea bindblur='bindTextAreaBlur' value='{{item.content}}' class='money'></textarea>
+            </view>
+          </view>
+
+        </view>
+
+        <view class="images-wrapper">
+          <text class="images-text">上传图片</text>
+          <view class="images-list">
+            <block wx:for="{{imageList}}">
+              <view class='imagess'>
+                <view class='delete' style='background-image:url("https://img.fingertc.com/images/2018/08/08/delete.png")' data-src='{{item}}' bindtap='deleteImg' id='{{index}}'></view>
+                <image src="{{item}}" class="images-image" id="{{index}}" bindtap="previewImage"></image>
+              </view>    
+            </block>
+            <view class="images-image image-plus" bindtap="chooseImage">
+              <view class="image-plus-horizontal"></view>
+              <view class="image-plus-vertical"></view>
+            </view> 
+          </view>
+        </view>
+        <button type="primary" class='submit' bindtap="modalcnt">确定修改</button>
+      </form>
+    </view>
+  </view>
+
+</view>

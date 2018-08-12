@@ -1,0 +1,54 @@
+/* pages/mine/set/set.wxss */
+.container{
+  padding: 60rpx 0 50rpx 0;
+  background-size: cover;
+  align-items: left;
+}
+.user-info{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+.head{
+  height: 120rpx;
+  width: 120rpx;
+  border-radius: 50%;
+  margin: 0 80rpx;
+}
+.head-img{
+  width: 100%;
+  height: 100%;
+  border-radius:50%; 
+}
+.nickname{
+  font-size: 32rpx;
+}
+.gap{
+  width: 100%;
+  height: 10rpx;
+  background-color:  rgb(251,249,254);
+}
+.left{
+  display: inline;
+}
+.right{
+  display: inline;
+  float: right;
+  color:#aaa;
+}
+.input{
+  height: 80rpx;
+  text-align: right;
+  line-height: 80rpx;
+}
+.box{
+  height:80rpx;
+  line-height:80rpx;
+  font-size:30rpx;
+  padding:0 30rpx;
+  border-bottom:1px solid #eee;
+}
+button{
+  margin-top: 60rpx;
+}

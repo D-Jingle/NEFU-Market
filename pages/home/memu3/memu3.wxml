@@ -1,0 +1,28 @@
+<!--pages/home/memu3/memu3.wxml-->
+<view class='box'>
+<view class='title'>团队介绍</view>  
+
+<view class='text'>
+《东林易货》 校内商品信息集散地。
+</view>
+<view class='text'>
+发布、浏览 二手/全新 商品信息，为东林学子提供便捷
+</view>
+<view class='text'>
+合作请致邮箱 cwm165@outlook.com 
+</view>
+<view class='gap'></view>
+<view class='title'>招募信息</view>
+
+<view class='text'>
+产品、运营、美工、策划、开发 
+</view>
+<view class='text'>
+不分学院，不论年级。如果你和我们一样拥有一颗创业的热心，欢迎加入我们。
+</view>
+<view class='text'>
+反馈交流群：572148672
+</view>
+
+
+</view>

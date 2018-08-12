@@ -1,0 +1,63 @@
+<!--pages/details/details.wxml-->
+<view class='container'>
+  <!-- 发布者头像和昵称 -->
+  <view class='user-info'>
+    <view class='user-info-img'>
+      <image src='{{item.profileImg}}'></image>
+    </view>
+    <view class='user-info-name'>{{item.wechatName}}</view>
+    <!-- <view class='shoucang'>
+      <image wx:if='{{!isCol}}' src='../../common/img/col.png'></image>
+      <image wx:if='{{isCol}}' src='../../common/img/coled.png'></image>
+    </view>  -->
+  </view>
+  <!-- 商品信息 -->
+  <view class='item-details'>
+    <!-- 商品内容 -->
+    <view class='item-content-container'>
+      <view class='item-content'>
+        <view class='item-head-box'>
+          <view class='item-name'>{{item.name}}</view>
+          <view class='item-price'>¥{{item.price}}</view>
+        </view>
+        <view class='item-class'>
+          #{{item.sortId}}#
+        </view>
+        {{item.content}}
+      </view>
+    </view>
+    <!-- 商品图片 -->
+    <view class="{{item.img.length != 0 ? 'item-img' : 'dis-none'}}">
+      <view wx:for='{{item.img}}' style='background-image: url("https://{{item.imgUrl}}")' bindtap='previewImage' id='{{item.imgId}}'>
+        <!-- <image\ src='https://{{item.imgUrl}}'></image> -->
+      </view>
+    </view>
+    <!-- 商品发布时间和浏览人数 -->
+    <view class='item-time'>
+      发布时间：{{item.createTime}}
+      浏览人数：{{item.views}}
+    </view>
+  </view>
+  <view class='gap'></view>
+  <!-- 发布者联系方式 -->
+  <view class='publish-mes'>
+    <view class='publish-mes-head'>
+      <view>联系方式</view>
+    </view>
+    <view class='publish-name'>联系人：{{user.name}}</view>
+    <view class='publish-tel'>电话：{{user.telNumber}}</view>
+    <view class='publish-message'>联系我时，请告知是在东林易货上看到的</view>
+  </view>
+    <view class='gap'></view>
+  <!-- 商品留言 -->
+  <view class='comment-container'>
+    <view class='comment-head'>
+      
+    </view>
+    <!-- 留言内容 -->
+    <view>
+
+    </view>
+  </view>
+</view>
+<!-- <button bindtap='bind'> dianwo </button> -->

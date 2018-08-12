@@ -1,0 +1,41 @@
+<!--pages/mine/issued/issued.wxml-->
+<scroll-view scroll-y='true'>
+  <view class='header'>
+    <view>wahoo~快来发布更多商品把！</view>
+  </view>
+  <view class='container' wx:for='{{item}}'> 
+    <view class='item-msg'>
+      <view class='item-img'>
+        <view class='item-img-bg' style='background-image: url(https://{{item.img[0].imgUrl}})'></view>
+      </view>
+      <view class='item-text'>
+        <view class='item-name'>{{item.name}}</view>
+        <view class='item-price'>¥{{item.price}}</view>
+        <view class='item-two'>
+          <view class='item-con'>留言:</view>
+          <view class='item-view'>浏览{{item.views}}</view>
+        </view>
+      </view> 
+    </view>
+    <view class='item-more'>
+      <view class='btn-container'>
+        <view class='dele'>
+          <button type='warn' bindtap='deleItem' id='{{item.itemId}}'>删除</button>
+        </view>
+        <view class='edit'>
+          <button bindtap='toEdit' id='{{item.itemId}}'>编辑</button>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view wx:if='{{!loading && !bottom}}' class="gap-3">
+      上拉加载更多
+    </view >
+    <view wx:if='{{loading && !bottom}}' class="gap-3">
+      <image src='../../../common/img/loading.gif'></image>
+      加载中
+    </view >
+    <view wx:if='{{bottom}}' class="gap-3" >
+      哇塞，你已经看到底了！
+    </view>
+</scroll-view>

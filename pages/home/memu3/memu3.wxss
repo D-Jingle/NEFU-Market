@@ -1,0 +1,21 @@
+/* pages/home/memu3/memu3.wxss */
+.box{
+  margin-top: 70rpx;
+  padding:0 30rpx;
+}
+.title{
+  font-size: 34rpx;
+  line-height: 100rpx;
+  padding-top: 20rpx;
+}
+.text{
+  font-size:30rpx;
+  /* border-bottom:1px solid #ddd; */
+  line-height:60rpx;
+  /* padding-bottom:40rpx; */
+}
+.gap{
+  margin-top: 36rpx;
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+}
