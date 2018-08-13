@@ -1,2 +1,16 @@
 <!--pages/home/memu1/memu1.wxml-->
-<text>pages/home/memu1/memu1.wxml</text>
+<view class='container'>
+  <view class='title'>日志</view>
+  <view class='text'>
+  <view>V1.0.0</view>
+  <view>· 项目发布</view>
+  <view>V1.0.1 </view>
+  <view>· 添加首页招募模块</view>
+  <view>· 添加发布按钮在首页</view>
+  <view>· 规定输入框字长</view>
+  <view>· 修复登陆异常问题</view>
+  <view>· 设置个人信息页面真实名字不能修改</view>
+  <view>· 修复已知bug，提升系统流畅度</view>
+  <view>     </view>
+  </view>
+</view>

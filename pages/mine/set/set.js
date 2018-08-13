@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    sex:['未知','男','女'],
     wechatName: getApp().globalData.wechatName,
     gender: getApp().globalData.gender,
     profileImg: getApp().globalData.profileImg,
@@ -12,9 +13,9 @@ Page({
 
     addr: [ '新校区', '老校区', ],
     index:0,
-    name:'代靖',
-    nickName: '玳玳花',
-    telNumber:'18888888888'
+    name:'',
+    nickName: '',
+    telNumber:''
   },
   bindPickerChange: function (e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -57,7 +58,6 @@ Page({
           },
           data: {
             userId: getApp().globalData.userId,
-            wechatName: that.data.nickName,
             name: that.data.name,
             telNumber: that.data.telNumber,
             address: that.data.addr[that.data.index]
@@ -69,7 +69,11 @@ Page({
                 title: '提示信息',
                 content: '修改成功！',
               })
-
+            } else {
+              wx.showModal({
+                title: '修改失败',
+                content: '修改失败，请检查文字格式！',
+              })
             }
           }
         })
@@ -86,16 +90,17 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
+    var wx_userInfo = wx.getStorageSync('wx_userInfo');
     this.setData({
-      wechatName: getApp().globalData.wechatName,
-      gender: getApp().globalData.gender,
-      profileImg: getApp().globalData.profileImg,
-      openId: getApp().globalData.openId
+      wechatName: wx_userInfo.nickName,
+      gender: this.data.sex[wx_userInfo.gender],
+      profileImg: wx_userInfo.avatarUrl,
+      openId: wx.getStorageSync('openId'),
     })
     wx.request({
-      url: 'https://www.nefuer.cc/info/' + getApp().globalData.userId,
+      url: 'https://www.nefuer.cc/info/' + wx.getStorageSync('userId'),
       header: {
-        'openId': getApp().globalData.openId,
+        'openId': wx.getStorageSync('openId'),
         'content-type': 'application/json'
       },
       success:function(res){

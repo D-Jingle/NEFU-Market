@@ -1,3 +1,10 @@
+<view class='issue' bindtap='toIssue'>
+  <view class='issue-img-box'>
+    <!-- <image src='https://img.fingertc.com/images/2018/08/12/issueIetm.png' class='issue-img'></image> -->
+  </view>
+  <!-- <view class='issue-text'>发布</view> -->
+</view>
+
 <scroll-view scroll-y='true'>
 <view class="index">
     <!-- <view id='search-box'>

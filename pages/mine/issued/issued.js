@@ -16,9 +16,9 @@ Page({
    */
   onLoad: function (options) {
     var that = this;
-    console.log(getApp().globalData.userId);
+    console.log(wx.getStorageSync('userId'));
     wx.request({
-      url: 'https://www.nefuer.cc/item?publishId=' + getApp().globalData.userId + '&page=1',
+      url: 'https://www.nefuer.cc/item?publishId=' + wx.getStorageSync('userId')+ '&page=1',
       header: {
         'openId': getApp().globalData.openId,
         'content-type': 'application/json'
@@ -49,7 +49,7 @@ Page({
       page: this.data.page + 1
     })
     wx.request({
-      url: 'https://www.nefuer.cc/item?publishId=' + getApp().globalData.userId + '&page=' + that.data.page,
+      url: 'https://www.nefuer.cc/item?publishId=' + wx.getStorageSync('userId') + '&page=' + that.data.page,
       method: 'GET',
       header: {
         'openId': getApp().globalData.openId,

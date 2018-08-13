@@ -31,6 +31,7 @@
 }
 .left{
   display: inline;
+  max-width: 200rpx;
 }
 .right{
   display: inline;
@@ -41,6 +42,8 @@
   height: 80rpx;
   text-align: right;
   line-height: 80rpx;
+  display: inline;
+  width: 230rpx;
 }
 .box{
   height:80rpx;

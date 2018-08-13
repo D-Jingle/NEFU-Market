@@ -118,6 +118,33 @@
   width: 40rpx;
   margin: 10rpx 20rpx;
 }
+.issue{
+  position: fixed;
+  width: 130rpx;
+  height: 130rpx;
+  bottom: 30rpx;
+  right: 30rpx;
+  z-index: 30;
+  font-size: 20rpx;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.issue-img-box{
+  background-color: rgba(32, 127, 76, 0.8);
+  width: 90rpx;
+  height: 90rpx;
+  border-radius: 50%;
+  background-image: url("https://img.fingertc.com/images/2018/08/12/issueIetm.png");
+  background-position: center;
+  background-size: 70%;
+  background-repeat: no-repeat;
+  box-shadow:3px 4px 10px 2px #bbb;
+}
+.issue-img{
+  width: 90%;
+  height: 90%;
+}
 
 
 

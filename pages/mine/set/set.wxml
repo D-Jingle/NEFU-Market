@@ -12,7 +12,7 @@
 <view class='box'>
   <view class='left'>真实姓名</view>
   <view class='right'>
-    {{name}}
+    <input class="input" name="input" bindinput='bindNickname' value="{{name}}" disabled='true'/>
   </view>
 </view>
 <view class='box'>
@@ -24,7 +24,7 @@
 <view class='box'>
   <view class='left'>电话号码</view>
   <view class='right'>
-    <input class="input" name="input" bindinput='bindtelNumber' value="{{telNumber}}" />
+    <input class="input" name="input" bindinput='bindtelNumber' value="{{telNumber}}" type="number"/>
   </view>
 </view>
 <view class='box'>

@@ -177,7 +177,7 @@ Page({
         title: '提示',
         content: '哇，你卖的东西也太贵了吧！',
       })
-    } else if (this.data.name.length > 15){
+    } else if (this.data.name.length > 10){
       wx.showModal({
         title: '提示',
         content: '亲，标题长度超过10了哟！',
@@ -199,7 +199,7 @@ Page({
                 url: 'https://www.nefuer.cc/item',
                 method: 'POST',
                 header: {
-                  'openId': getApp().globalData.openId,
+                  'openId': wx.getStorageSync('openId'),
                   'content-type': 'application/json'
                 },
                 data: {
@@ -208,7 +208,7 @@ Page({
                   sortId: that.data.index + 1,
                   content: that.data.content,
                   views: 1,
-                  publishId: getApp().globalData.userId,
+                  publishId: wx.getStorageSync('userId'),
                   status: 1
                 },
                 success: function (res) {
@@ -233,7 +233,7 @@ Page({
                         url: 'https://www.nefuer.cc/img',
                         method: 'POST',
                         header: {
-                          'openId': getApp().globalData.openId,
+                          'openId': wx.getStorageSync('openId'),
                           'content-type': 'application/json'
                         },
                         data: that.data.img,

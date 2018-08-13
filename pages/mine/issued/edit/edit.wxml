@@ -28,7 +28,7 @@
           <view class='container-min'>
             <view class='left'>商品价格</view>
             <view class="section">
-              <input type='digit' class='detail' value='{{item.price}}' bindblur="goodPrice"/>
+              <input type='number' class='detail' value='{{item.price}}' bindblur="goodPrice"/>
             </view>
           </view>
           <view class='holder'></view>

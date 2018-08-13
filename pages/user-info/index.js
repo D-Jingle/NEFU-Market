@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    sex:['未知','男','女'],
     name: '',
     nickName: '',
     telNumber: '',
@@ -18,13 +19,14 @@ Page({
 
   onLoad: function (options) {
     var that = this;
+    var wx_userInfo = wx.getStorageSync('wx_userInfo');
     this.setData({
-      wechatName: getApp().globalData.wechatName,
-      gender: getApp().globalData.gender,
-      profileImg: getApp().globalData.profileImg,
-      openId: getApp().globalData.openId
+      wechatName: wx_userInfo.nickName,
+      gender: this.data.sex[wx_userInfo.gender],
+      profileImg: wx_userInfo.avatarUrl,
+      openId: wx.getStorageSync('openId'),
     })
-    // console.log(getApp().globalData.profileImg);
+    console.log(this.data.wechatName, this.data.gender, this.data.profileImg, this.data.openId);
   },
 
   bindPickerChange: function (e) {
@@ -50,46 +52,70 @@ Page({
 
   submit: function (e) {
     var that = this;
-    wx.request({
-      method: 'POST',
-      url: 'https://www.nefuer.cc/signup',
-      data: {
-        wechatName: that.data.nickName,
-        gender: that.data.gender,
-        profileImg: that.data.profileImg,
-        name: that.data.name,
-        telNumber: that.data.telNumber,
-        address: that.data.array[that.data.index],
-        openId: wx.getStorageSync('openId'),
-        sessionKey: "asdsa"
-      },
-      header: {
-        'openId': getApp().globalData.openId,
-        'content-type': 'application/json'
-      },
-      success: function (res) {
-        console.log(res);
-        // console.log(getApp().globalData.openId);
-        if (res.data.code == 0) {
-          getApp().globalData.userId = res.data.data;
-          console.log(getApp().globalData.userId);
-          // getApp().globalData.hasSignUp = true;
-          wx.showToast({
-            title: '提交成功',
-            icon: 'success'
-          })
-          setTimeout(function () {
-            wx.switchTab({
-              url: '../home/index',
+    if(this.data.telNumber.length != 11){
+      wx.showModal({
+        title: '提示',
+        content: '请输入正确的手机号！',
+      })
+    } else {
+      wx.request({
+        method: 'POST',
+        url: 'https://www.nefuer.cc/signup',
+        data: {
+          wechatName: that.data.nickName,
+          gender: that.data.gender,
+          profileImg: that.data.profileImg,
+          name: that.data.name,
+          telNumber: that.data.telNumber,
+          address: that.data.array[that.data.index],
+          openId: wx.getStorageSync('openId'),
+          sessionKey: "asdsa"
+        },
+        header: {
+          'openId': wx.getStorageSync('openId'),
+          'content-type': 'application/json'
+        },
+        success: function (res) {
+          console.log(res);
+          if (res.data.code == 0) {
+            wx.setStorageSync('userId', res.data.data);
+            getApp().globalData.userId = res.data.data;
+            console.log(getApp().globalData.userId, wx.getStorageSync('userId'));
+            wx.showToast({
+              title: '提交成功',
+              icon: 'success'
             })
-          }, 2000)
-        } else {
-          wx.showToast({
-            title: '提交失败',
-            icon: 'none'
-          })
+            setTimeout(function () {
+              wx.switchTab({
+                url: '../home/index',
+              })
+            }, 2000)
+          } else if (res.data.code == 2) {
+            wx.setStorageSync('userId', res.data.data);
+            getApp().globalData.userId = res.data.data;
+            wx.getUserInfo({
+              success: function (res_info) {
+                wx.setStorageSync('wx_userInfo', res_info.userInfo);
+              }
+            })
+            wx.showToast({
+              title: '您已注册过,将自动跳转主页面',
+              icon: 'none'
+            })
+            setTimeout(function () {
+              wx.switchTab({
+                url: '../home/index',
+              })
+            }, 2000)
+          } else {
+            wx.showToast({
+              title: '提交失败',
+              icon: 'none'
+            })
+          }
         }
-      }
-    })
+      })
+    }
+
   }
 })

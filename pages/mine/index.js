@@ -9,6 +9,8 @@ Page({
     gender: getApp().globalData.gender,
     profileImg: getApp().globalData.profileImg,
     openId: getApp().globalData.openId,
+    sex:['未知','男','女'],
+    wx_userInfo: wx.getStorageSync('wx_userInfo'),
 
     data: [
       {
@@ -44,11 +46,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var wx_userInfo =  wx.getStorageSync('wx_userInfo');
     this.setData({
-      wechatName: getApp().globalData.wechatName,
-      gender: getApp().globalData.gender,
-      profileImg: getApp().globalData.profileImg,
-      openId: getApp().globalData.openId
+      wechatName: wx_userInfo.nickName,
+      gender: this.data.sex[wx_userInfo.gender],
+      profileImg: wx_userInfo.avatarUrl,
+      openId: wx.getStorageSync('openId'),
     })
     // wx.request({
     //   url: 'https://www.nefuer.cc/item/?sortId=1&page=1',

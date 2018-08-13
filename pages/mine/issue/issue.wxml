@@ -9,7 +9,7 @@
           <view class='container-min'>
             <view class='left'>商品标题</view>
             <view class="section">
-              <input focus placeholder='请输入标题' class='name' bindblur="goodTitle"/>
+              <input focus placeholder='标题不超过10个长度' maxlength='10' class='name' bindblur="goodTitle"/>
             </view>
           </view>
           <view class='holder'></view>
@@ -29,7 +29,7 @@
           <view class='container-min'>
             <view class='left'>商品价格</view>
             <view class="section">
-              <input type='digit' placeholder='请输入价格' class='detail' bindblur="goodPrice"/>
+              <input type='number' placeholder='价格不超过9999' class='detail' bindblur="goodPrice"/>
             </view>
           </view>
           <view class='holder'></view>

@@ -34,16 +34,16 @@ App({
     })
   },
   globalData: {
-    hasSignUp: false,
-
+    // hasSignUp: false,
     sortArray: '',
-
     openId: '',
     userId: '',
 
-    wechatName: '',
-    gender: '',
-    profileImg: '',
+    // wechatName: '',
+    // gender: '',
+    // profileImg: '',
+
+    wx_userInfo:'',
 
     name: "",
     telNumber: '',

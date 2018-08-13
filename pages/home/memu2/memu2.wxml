@@ -1,2 +1,6 @@
 <!--pages/home/memu2/memu2.wxml-->
-<text>pages/home/memu2/memu2.wxml</text>
+<view class='container'>
+  <view>
+    内测期间，请轻拿轻放🚗
+  </view>
+</view>

@@ -1,1 +1,11 @@
 /* pages/home/memu1/memu1.wxss */
+.title{
+  height: 50rpx;
+  line-height: 50rpx;
+  font-weight: 700;
+  font-size: 50rpx;
+}
+.container{
+  line-height: 50rpx;
+  font-size: 35rpx;
+}
